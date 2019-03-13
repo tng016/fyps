@@ -150,21 +150,24 @@ class PascalVOCSource:
         train_annot = []
         train_samples = []
 
-        root = data_dir + '/train'
+        root = data_dir + '/trainval'
         name = 'trainval_brats18'
-        annot = self.__build_annotation_list(root, 'trainval')
+        annot = self.__build_annotation_list(root, 'train')
         train_annot += annot
         train_samples += self.__build_sample_list(root, annot, name)
+
+        root = data_dir + '/test'
+        annot = self.__build_annotation_list(root, 'test')
+        train_samples += self.__build_sample_list(root, annot, 'test_brats18')
 
         #-----------------------------------------------------------------------
         # We have some 5.5k annotated samples that are not on these lists, so
         # we can use them for validation
         #-----------------------------------------------------------------------
-        root = data_dir + '/val'
         all_annot = set(glob(root + '/Annotations/*.xml'))
         valid_annot = all_annot - set(train_annot)
         valid_samples = self.__build_sample_list(root, valid_annot,
-                                                 'valid_VOC2012')
+                                                 'valid_brats18')
 
         #-----------------------------------------------------------------------
         # Final set up and sanity check
