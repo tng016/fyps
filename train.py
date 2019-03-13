@@ -52,7 +52,7 @@ def main():
     # Parse the commandline
     #---------------------------------------------------------------------------
     parser = argparse.ArgumentParser(description='Train the SSD')
-    parser.add_argument('--name', default='test',
+    parser.add_argument('--name', default='brats_test',
                         help='project name')
     parser.add_argument('--data-dir', default='pascal-voc',
                         help='data directory')
