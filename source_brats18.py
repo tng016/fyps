@@ -157,9 +157,9 @@ class PascalVOCSource:
         train_annot += annot
         train_samples += self.__build_sample_list(root, annot, name)
 
-        root = data_dir + '/test'
-        annot = self.__build_annotation_list(root, 'test')
-        train_samples += self.__build_sample_list(root, annot, 'test_brats18')
+        # root = data_dir + '/test'
+        # annot = self.__build_annotation_list(root, 'test')
+        # train_samples += self.__build_sample_list(root, annot, 'test_brats18')
 
         #-----------------------------------------------------------------------
         # We have some 5.5k annotated samples that are not on these lists, so
