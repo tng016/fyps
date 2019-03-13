@@ -149,6 +149,7 @@ class PascalVOCSource:
         # Process the samples defined in the relevant file lists
         #-----------------------------------------------------------------------
         train_annot = []
+        valid_annot = []
         train_samples = []
 
         root = data_dir + '/trainval'
