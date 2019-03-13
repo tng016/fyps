@@ -63,10 +63,13 @@ class TrainingData:
         self.lname2id        = data['lname2id']
         self.train_tfs       = data['train-transforms']
         self.valid_tfs       = data['valid-transforms']
+        print('1')
         self.train_generator = self.__batch_generator(train_samples,
                                                       self.train_tfs)
+        print('2')
         self.valid_generator = self.__batch_generator(valid_samples,
                                                       self.valid_tfs)
+        print('3')
         self.num_train       = len(train_samples)
         self.num_valid       = len(valid_samples)
         self.train_samples   = list(map(lambda x: x[2], train_samples))
