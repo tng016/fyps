@@ -251,6 +251,7 @@ def main():
             #-------------------------------------------------------------------
             # Train
             #-------------------------------------------------------------------
+            print('before train_generator')
             generator = td.train_generator(args.batch_size, args.num_workers)
             description = '[i] Train {:>2}/{}'.format(e+1, args.epochs)
             for x, y, gt_boxes in tqdm(generator, total=n_train_batches,

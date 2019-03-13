@@ -50,10 +50,8 @@ class TrainingData:
 
         nones = [None] * len(train_samples)
         train_samples = list(zip(nones, nones, train_samples))
-        print('train samples: ',train_samples)
         nones = [None] * len(valid_samples)
         valid_samples = list(zip(nones, nones, valid_samples))
-        print('valid samples: ',valid_samples)
 
         #-----------------------------------------------------------------------
         # Set the attributes up
@@ -65,13 +63,10 @@ class TrainingData:
         self.lname2id        = data['lname2id']
         self.train_tfs       = data['train-transforms']
         self.valid_tfs       = data['valid-transforms']
-        print('1')
         self.train_generator = self.__batch_generator(train_samples,
                                                       self.train_tfs)
-        print('2')
         self.valid_generator = self.__batch_generator(valid_samples,
                                                       self.valid_tfs)
-        print('3')
         self.num_train       = len(train_samples)
         self.num_valid       = len(valid_samples)
         self.train_samples   = list(map(lambda x: x[2], train_samples))
@@ -84,6 +79,7 @@ class TrainingData:
         #-----------------------------------------------------------------------
         def run_transforms(sample):
             args = sample
+            print('transforms',transforms)
             for t in transforms:
                 args = t(*args)
             return args
@@ -97,6 +93,7 @@ class TrainingData:
                 done = False
                 counter = 0
                 while not done and counter < 50:
+                    print('s',s)
                     image, label, gt = run_transforms(s)
                     num_bg = np.count_nonzero(label[:, self.num_classes])
                     done = num_bg < label.shape[0]
@@ -121,6 +118,7 @@ class TrainingData:
                 except q.Empty:
                     break
 
+                print('samples',samples)
                 images, labels, gt_boxes = process_samples(samples)
 
                 #---------------------------------------------------------------
