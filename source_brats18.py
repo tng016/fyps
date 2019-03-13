@@ -152,7 +152,7 @@ class PascalVOCSource:
 
         root = data_dir + '/trainval'
         name = 'trainval_brats18'
-        annot = self.__build_annotation_list(root, 'train')
+        annot = self.__build_annotation_list(root, 'trainval')
         train_annot += annot
         train_samples += self.__build_sample_list(root, annot, name)
 
