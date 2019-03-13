@@ -5,23 +5,23 @@ import imageio
 from lxml import etree
 
 def main():
-    process_nii_image('Brats18_2013_3_1/Brats18_2013_3_1_t1.nii.gz')
+    process_nii_image('Brats18_2013_4_1/Brats18_2013_4_1_t1.nii.gz')
 
 def process_nii_image(example_filename):
     img_flair = nib.load(example_filename)
     img_data = img_flair.get_fdata()
 
-    seg_flair = nib.load('Brats18_2013_3_1/Brats18_2013_3_1_seg.nii.gz')
+    seg_flair = nib.load('Brats18_2013_4_1/Brats18_2013_4_1_seg.nii.gz')
     seg_data = seg_flair.get_fdata()
 
     train_text = ''
     val_text = ''
     tumor_text = ''
     for i in range(155):
-        filename = 'Brats18_2013_3_1_t1_'+str(i)
+        filename = 'Brats18_2013_4_1_t1_'+str(i)
         img_data_slice = img_data[:,:,i]
         seg_data_slice = seg_data[:,:,i]
-        imageio.imwrite('./brats18/trainval/JPEGImages/Brats18_2013_3_1_t1_'+str(i)+'.jpg', img_data_slice)
+        imageio.imwrite('./brats18/trainval/JPEGImages/Brats18_2013_4_1_t1_'+str(i)+'.jpg', img_data_slice)
         x0= first_nonzero(seg_data_slice, axis=0, invalid_val=9999)
         y0= first_nonzero(seg_data_slice, axis=1, invalid_val=9999)
         x1= last_nonzero(seg_data_slice, axis=0, invalid_val=-1)
@@ -31,7 +31,8 @@ def process_nii_image(example_filename):
             tumor_text += filename +' 1\n'
         else:
             tumor_text += filename +' -1\n'
-        if (i%5!=0):
+        #if (i%5!=0):
+        if True:
             train_text+=filename +'\n'
         else:
             val_text+=filename +'\n'
