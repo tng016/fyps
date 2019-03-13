@@ -60,14 +60,14 @@ def main():
     #---------------------------------------------------------------------------
     parser = argparse.ArgumentParser(description='SSD inference')
     parser.add_argument("files", nargs="*")
-    parser.add_argument('--name', default='test',
+    parser.add_argument('--name', default='/data/tng016/brats_test',
                         help='project name')
     parser.add_argument('--checkpoint', type=int, default=-1,
                         help='checkpoint to restore; -1 is the most recent')
     parser.add_argument('--training-data',
-                        default='pascal-voc/training-data.pkl',
+                        default='/data/tng016/brats18/training-data.pkl',
                         help='Information about parameters used for training')
-    parser.add_argument('--output-dir', default='test-output',
+    parser.add_argument('--output-dir', default='/data/tng016/brats-test-output',
                         help='directory for the resulting images')
     parser.add_argument('--annotate', type=str2bool, default='False',
                         help="Annotate the data samples")
@@ -75,9 +75,9 @@ def main():
                         help="Dump raw predictions")
     parser.add_argument('--compute-stats', type=str2bool, default='True',
                         help="Compute the mAP stats")
-    parser.add_argument('--data-source', default=None,
+    parser.add_argument('--data-source', default='brats18',
                         help='Use test files from the data source')
-    parser.add_argument('--data-dir', default='pascal-voc',
+    parser.add_argument('--data-dir', default='/data/tng016/brats18',
                         help='Use test files from the data source')
     parser.add_argument('--batch-size', type=int, default=32,
                         help='batch size')
