@@ -54,9 +54,9 @@ def main():
     parser = argparse.ArgumentParser(description='Train the SSD')
     parser.add_argument('--name', default='brats_test',
                         help='project name')
-    parser.add_argument('--data-dir', default='pascal-voc',
+    parser.add_argument('--data-dir', default='brats18',
                         help='data directory')
-    parser.add_argument('--vgg-dir', default='brats18',
+    parser.add_argument('--vgg-dir', default='vgg_graph',
                         help='directory for the VGG-16 model')
     parser.add_argument('--epochs', type=int, default=200,
                         help='number of training epochs')
