@@ -151,6 +151,7 @@ class PascalVOCSource:
         train_annot = []
         valid_annot = []
         train_samples = []
+        valid_samples = []
 
         root = data_dir + '/trainval'
         name = 'train_brats18'
