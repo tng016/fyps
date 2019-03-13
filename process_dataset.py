@@ -170,7 +170,7 @@ def main():
     parser = argparse.ArgumentParser(description='Process a dataset for SSD')
     parser.add_argument('--data-source', default='brats18',
                         help='data source')
-    parser.add_argument('--data-dir', default='brats18',
+    parser.add_argument('--data-dir', default='/data/tng016/brats18',
                         help='data directory')
     parser.add_argument('--validation-fraction', type=float, default=0.025,
                         help='fraction of the data to be used for validation')
