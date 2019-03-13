@@ -52,9 +52,9 @@ def main():
     # Parse the commandline
     #---------------------------------------------------------------------------
     parser = argparse.ArgumentParser(description='Train the SSD')
-    parser.add_argument('--name', default='brats_test',
+    parser.add_argument('--name', default='/data/tng016/brats_test',
                         help='project name')
-    parser.add_argument('--data-dir', default='brats18',
+    parser.add_argument('--data-dir', default='/data/tng016/brats18',
                         help='data directory')
     parser.add_argument('--vgg-dir', default='vgg_graph',
                         help='directory for the VGG-16 model')
