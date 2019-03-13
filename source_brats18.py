@@ -35,7 +35,8 @@ from tqdm import tqdm
 # Labels
 #-------------------------------------------------------------------------------
 label_defs = [
-    Label('aeroplane',   rgb2bgr((0,     0,   0))),
+    Label('aeroplane',   rgb2bgr((1,     0,   0))),
+    Label('tumor',       rgb2bgr((0,     0,   0))),
     Label('bicycle',     rgb2bgr((111,  74,   0))),
     Label('bird',        rgb2bgr(( 81,   0,  81))),
     Label('boat',        rgb2bgr((128,  64, 128))),
