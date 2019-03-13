@@ -50,8 +50,10 @@ class TrainingData:
 
         nones = [None] * len(train_samples)
         train_samples = list(zip(nones, nones, train_samples))
+        print('train samples: ',train_samples)
         nones = [None] * len(valid_samples)
         valid_samples = list(zip(nones, nones, valid_samples))
+        print('valid samples: ',valid_samples)
 
         #-----------------------------------------------------------------------
         # Set the attributes up
