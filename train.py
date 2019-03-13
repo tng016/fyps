@@ -56,7 +56,7 @@ def main():
                         help='project name')
     parser.add_argument('--data-dir', default='pascal-voc',
                         help='data directory')
-    parser.add_argument('--vgg-dir', default='vgg_graph',
+    parser.add_argument('--vgg-dir', default='brats18',
                         help='directory for the VGG-16 model')
     parser.add_argument('--epochs', type=int, default=200,
                         help='number of training epochs')
