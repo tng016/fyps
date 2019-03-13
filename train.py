@@ -62,7 +62,7 @@ def main():
                         help='number of training epochs')
     parser.add_argument('--batch-size', type=int, default=8,
                         help='batch size')
-    parser.add_argument('--tensorboard-dir', default="tb",
+    parser.add_argument('--tensorboard-dir', default="/data/tng016/tb",
                         help='name of the tensorboard data directory')
     parser.add_argument('--checkpoint-interval', type=int, default=5,
                         help='checkpoint interval')
