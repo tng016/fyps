@@ -158,10 +158,10 @@ def compute_overlap(box_arr, anchors_arr, threshold):
 
     good_idxs = np.nonzero(overlap)[0]
     #print('iou',iou)
-    try:
+    if iou:
         best_idx  = np.argmax(iou)
-    except:
-        print(iou)
+    else:
+        best_idx  = 0
     #print('best idx',best_idx)
     best = None
     good = []
