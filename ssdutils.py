@@ -154,8 +154,9 @@ def jaccard_overlap(box_arr, anchors_arr):
 #-------------------------------------------------------------------------------
 def compute_overlap(box_arr, anchors_arr, threshold):
     print('box',box_arr)
-    print('box',anchors_arr)
+    print('anchors',anchors_arr)
     iou = jaccard_overlap(box_arr, anchors_arr)
+    print('iou',iou)
     overlap = iou > threshold
 
     good_idxs = np.nonzero(overlap)[0]
