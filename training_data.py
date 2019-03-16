@@ -79,7 +79,6 @@ class TrainingData:
         #-----------------------------------------------------------------------
         def run_transforms(sample):
             args = sample
-            print('transforms',transforms)
             for t in transforms:
                 args = t(*args)
             return args
@@ -93,7 +92,6 @@ class TrainingData:
                 done = False
                 counter = 0
                 while not done and counter < 50:
-                    print('s',s)
                     image, label, gt = run_transforms(s)
                     num_bg = np.count_nonzero(label[:, self.num_classes])
                     done = num_bg < label.shape[0]
@@ -118,7 +116,6 @@ class TrainingData:
                 except q.Empty:
                     break
 
-                print('samples',samples)
                 images, labels, gt_boxes = process_samples(samples)
 
                 #---------------------------------------------------------------
