@@ -154,13 +154,13 @@ def jaccard_overlap(box_arr, anchors_arr):
 #-------------------------------------------------------------------------------
 def compute_overlap(box_arr, anchors_arr, threshold):
     iou = jaccard_overlap(box_arr, anchors_arr)
+    if (iou.size == 0):
+        iou = np.array([0.])
     overlap = iou > threshold
 
     good_idxs = np.nonzero(overlap)[0]
     #print('iou',iou)
-    best_idx = 0
-    if (iou.size != 0):
-        best_idx  = np.argmax(iou)
+    best_idx  = np.argmax(iou)
 
     #print('best idx',best_idx)
     best = None
