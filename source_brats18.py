@@ -23,7 +23,7 @@ import random
 import math
 import cv2
 import os
-#import imageio
+import imageio
 
 import numpy as np
 
@@ -110,8 +110,8 @@ class PascalVOCSource:
                 if not os.path.exists(filename):
                     continue
 
-                img     = cv2.imread(filename)
-                #img     = imageio.imread(filename)
+                #img     = cv2.imread(filename)
+                img     = imageio.imread(filename)
                 imgsize = Size(img.shape[1], img.shape[0])
 
                 #---------------------------------------------------------------

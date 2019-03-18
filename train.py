@@ -23,6 +23,7 @@ import argparse
 import math
 import sys
 import os
+import imageio
 
 import multiprocessing as mp
 import tensorflow as tf
