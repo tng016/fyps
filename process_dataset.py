@@ -51,13 +51,13 @@ def annotate(data_dir, samples, colors, sample_name):
         os.makedirs(result_dir)
 
     for sample in tqdm(samples, desc=sample_name, unit='samples'):
-        img    = imageio.imread(sample.filename)
-        #img    = cv2.imread(sample.filename)
+        #img    = imageio.imread(sample.filename)
+        img    = cv2.imread(sample.filename)
         basefn = os.path.basename(sample.filename)
         for box in sample.boxes:
             draw_box(img, box, colors[box.label])
-        #cv2.imwrite(result_dir+basefn, img)
-        imageio.imwrite(result_dir+basefn, img)
+        cv2.imwrite(result_dir+basefn, img)
+        #imageio.imwrite(result_dir+basefn, img)
 
 #-------------------------------------------------------------------------------
 def build_sampler(overlap, trials):
