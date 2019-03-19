@@ -102,8 +102,8 @@ def build_train_transforms(preset, num_classes, sampler_trials, expand_prob):
     #---------------------------------------------------------------------------
     tf_distort_lst = [
         tf_rnd_contrast,
-        tf_rnd_saturation,
-        tf_rnd_hue,
+        #tf_rnd_saturation,
+        #tf_rnd_hue,
         tf_rnd_contrast
     ]
     tf_distort_1 = ComposeTransform(transforms=tf_distort_lst[:-1])
