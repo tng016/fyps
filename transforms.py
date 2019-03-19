@@ -20,6 +20,7 @@
 
 import cv2
 import random
+import imageio
 
 import numpy as np
 
@@ -42,6 +43,7 @@ class ImageLoaderTransform(Transform):
     """
     def __call__(self, data, label, gt):
         return cv2.imread(gt.filename), label, gt
+        #return imageio.imread(gt.filename), label, gt
 
 #-------------------------------------------------------------------------------
 def process_overlap(overlap, box, anchor, matches, num_classes, vec):
