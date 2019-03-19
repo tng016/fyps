@@ -191,38 +191,38 @@ class ContrastTransform(Transform):
         return data, label, gt
 
 #-------------------------------------------------------------------------------
-class HueTransform(Transform):
-    """
-    Transform hue
-    Parameters: delta
-    """
-    def __call__(self, data, label, gt):
-        data = cv2.cvtColor(data, cv2.COLOR_BGR2HSV)
-        data = data.astype(np.float32)
-        delta = random.randint(-self.delta, self.delta)
-        data[0] += delta
-        data[0][data[0]>180] -= 180
-        data[0][data[0]<0] +=180
-        data = data.astype(np.uint8)
-        data = cv2.cvtColor(data, cv2.COLOR_HSV2BGR)
-        return data, label, gt
+# class HueTransform(Transform):
+#     """
+#     Transform hue
+#     Parameters: delta
+#     """
+#     def __call__(self, data, label, gt):
+#         data = cv2.cvtColor(data, cv2.COLOR_BGR2HSV)
+#         data = data.astype(np.float32)
+#         delta = random.randint(-self.delta, self.delta)
+#         data[0] += delta
+#         data[0][data[0]>180] -= 180
+#         data[0][data[0]<0] +=180
+#         data = data.astype(np.uint8)
+#         data = cv2.cvtColor(data, cv2.COLOR_HSV2BGR)
+#         return data, label, gt
 
 #-------------------------------------------------------------------------------
-class SaturationTransform(Transform):
-    """
-    Transform hue
-    Parameters: lower, upper
-    """
-    def __call__(self, data, label, gt):
-        data = cv2.cvtColor(data, cv2.COLOR_BGR2HSV)
-        data = data.astype(np.float32)
-        delta = random.uniform(self.lower, self.upper)
-        data[1] *= delta
-        data[1][data[1]>255] = 255
-        data[1][data[1]<0] = 0
-        data = data.astype(np.uint8)
-        data = cv2.cvtColor(data, cv2.COLOR_HSV2BGR)
-        return data, label, gt
+# class SaturationTransform(Transform):
+#     """
+#     Transform hue
+#     Parameters: lower, upper
+#     """
+#     def __call__(self, data, label, gt):
+#         data = cv2.cvtColor(data, cv2.COLOR_BGR2HSV)
+#         data = data.astype(np.float32)
+#         delta = random.uniform(self.lower, self.upper)
+#         data[1] *= delta
+#         data[1][data[1]>255] = 255
+#         data[1][data[1]<0] = 0
+#         data = data.astype(np.uint8)
+#         data = cv2.cvtColor(data, cv2.COLOR_HSV2BGR)
+#         return data, label, gt
 
 #-------------------------------------------------------------------------------
 class ReorderChannelsTransform(Transform):
