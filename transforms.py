@@ -42,7 +42,7 @@ class ImageLoaderTransform(Transform):
     Load and image from the file specified in the Sample object
     """
     def __call__(self, data, label, gt):
-        return cv2.imread(gt.filename, cv2.IMREAD_UNCHANGED), label, gt
+        return cv2.imread(gt.filename, cv2.IMREAD_GRAYSCALE), label, gt
         #return imageio.imread(gt.filename), label, gt
 
 #-------------------------------------------------------------------------------

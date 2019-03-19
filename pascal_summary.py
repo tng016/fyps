@@ -38,7 +38,7 @@ class PascalSummary:
     def add_detections(self, filename, boxes):
         fileid = os.path.basename(filename)
         fileid = ''.join(fileid.split('.')[:-1])
-        img = cv2.imread(filename)
+        img = cv2.imread(filename, cv2.IMREAD_UNCHANGED)
         img_size = Size(img.shape[1], img.shape[0])
         for conf, box in boxes:
             xmin, xmax, ymin, ymax = prop2abs(box.center, box.size, img_size)
