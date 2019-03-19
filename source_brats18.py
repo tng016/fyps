@@ -110,7 +110,7 @@ class PascalVOCSource:
                 if not os.path.exists(filename):
                     continue
 
-                img     = cv2.imread(filename)
+                img     = cv2.imread(filename, cv2.IMREAD_UNCHANGED)
                 #img     = imageio.imread(filename)
                 imgsize = Size(img.shape[1], img.shape[0])
 

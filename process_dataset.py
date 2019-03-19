@@ -52,7 +52,7 @@ def annotate(data_dir, samples, colors, sample_name):
 
     for sample in tqdm(samples, desc=sample_name, unit='samples'):
         #img    = imageio.imread(sample.filename)
-        img    = cv2.imread(sample.filename)
+        img    = cv2.imread(sample.filename, cv2.IMREAD_UNCHANGED)
         basefn = os.path.basename(sample.filename)
         for box in sample.boxes:
             draw_box(img, box, colors[box.label])
