@@ -206,18 +206,18 @@ def main():
     # Load the data source
     #---------------------------------------------------------------------------
     print('[i] Configuring the data source...')
-    try:
-        source = load_data_source(args.data_source)
-        source.load_trainval_data(args.data_dir, args.validation_fraction)
-        if args.process_test:
-            source.load_test_data(args.data_dir)
-        print('[i] # training samples:   ', source.num_train)
-        print('[i] # validation samples: ', source.num_valid)
-        print('[i] # testing samples:    ', source.num_test)
-        print('[i] # classes:            ', source.num_classes)
-    except (ImportError, AttributeError, RuntimeError) as e:
-        print('[!] Unable to load data source:', str(e))
-        return 1
+    #try:
+    source = load_data_source(args.data_source)
+    source.load_trainval_data(args.data_dir, args.validation_fraction)
+    if args.process_test:
+        source.load_test_data(args.data_dir)
+    print('[i] # training samples:   ', source.num_train)
+    print('[i] # validation samples: ', source.num_valid)
+    print('[i] # testing samples:    ', source.num_test)
+    print('[i] # classes:            ', source.num_classes)
+    #except (ImportError, AttributeError, RuntimeError) as e:
+        # print('[!] Unable to load data source:', str(e))
+        # return 1
 
     #---------------------------------------------------------------------------
     # Annotate samples
