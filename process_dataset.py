@@ -115,8 +115,8 @@ def build_train_transforms(preset, num_classes, sampler_trials, expand_prob):
     #---------------------------------------------------------------------------
     # Expand sample
     #---------------------------------------------------------------------------
-    tf_expand = ExpandTransform(max_ratio=4.0, mean_value=[104, 117, 123])
-    tf_rnd_expand = RandomTransform(prob=expand_prob, transform=tf_expand)
+    # tf_expand = ExpandTransform(max_ratio=4.0, mean_value=[104, 117, 123])
+    # tf_rnd_expand = RandomTransform(prob=expand_prob, transform=tf_expand)
 
     #---------------------------------------------------------------------------
     # Samplers
@@ -146,7 +146,7 @@ def build_train_transforms(preset, num_classes, sampler_trials, expand_prob):
         tf_rnd_brightness,
         tf_distort,
         tf_rnd_reorder_channels,
-        tf_rnd_expand,
+        # tf_rnd_expand,
         tf_sample_picker,
         tf_rnd_flip,
         LabelCreatorTransform(preset=preset, num_classes=num_classes),

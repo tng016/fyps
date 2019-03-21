@@ -271,34 +271,34 @@ def transform_gt(gt, new_size, h_off, w_off):
     return Sample(gt.filename, boxes, new_size)
 
 #-------------------------------------------------------------------------------
-class ExpandTransform(Transform):
-    """
-    Expand the image and fill the empty space with the mean value
-    Parameters: max_ratio, mean_value
-    """
-    def __call__(self, data, label, gt):
-        #-----------------------------------------------------------------------
-        # Calculate sizes and offsets
-        #-----------------------------------------------------------------------
-        ratio = random.uniform(1, self.max_ratio)
-        orig_size = gt.imgsize
-        new_size = Size(int(orig_size.w*ratio), int(orig_size.h*ratio))
-        h_off = random.randint(0, new_size.h-orig_size.h)
-        w_off = random.randint(0, new_size.w-orig_size.w)
-
-        #-----------------------------------------------------------------------
-        # Create the new image and place the input image in it
-        #-----------------------------------------------------------------------
-        img = np.zeros((new_size.h, new_size.w))
-        img[:, :] = np.array(self.mean_value)
-        img[h_off:h_off+orig_size.h, w_off:w_off+orig_size.w] = data
-
-        #-----------------------------------------------------------------------
-        # Transform the ground truth
-        #-----------------------------------------------------------------------
-        gt = transform_gt(gt, new_size, h_off, w_off)
-
-        return img, label, gt
+# class ExpandTransform(Transform):
+#     """
+#     Expand the image and fill the empty space with the mean value
+#     Parameters: max_ratio, mean_value
+#     """
+#     def __call__(self, data, label, gt):
+#         #-----------------------------------------------------------------------
+#         # Calculate sizes and offsets
+#         #-----------------------------------------------------------------------
+#         ratio = random.uniform(1, self.max_ratio)
+#         orig_size = gt.imgsize
+#         new_size = Size(int(orig_size.w*ratio), int(orig_size.h*ratio))
+#         h_off = random.randint(0, new_size.h-orig_size.h)
+#         w_off = random.randint(0, new_size.w-orig_size.w)
+#
+#         #-----------------------------------------------------------------------
+#         # Create the new image and place the input image in it
+#         #-----------------------------------------------------------------------
+#         img = np.zeros((new_size.h, new_size.w, 3))
+#         img[:, :] = np.array(self.mean_value)
+#         img[h_off:h_off+orig_size.h, w_off:w_off+orig_size.w, :] = data
+#
+#         #-----------------------------------------------------------------------
+#         # Transform the ground truth
+#         #-----------------------------------------------------------------------
+#         gt = transform_gt(gt, new_size, h_off, w_off)
+#
+#         return img, label, gt
 
 #-------------------------------------------------------------------------------
 class SamplerTransform(Transform):
