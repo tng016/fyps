@@ -289,9 +289,9 @@ class ExpandTransform(Transform):
         #-----------------------------------------------------------------------
         # Create the new image and place the input image in it
         #-----------------------------------------------------------------------
-        img = np.zeros((new_size.h, new_size.w, 3))
+        img = np.zeros((new_size.h, new_size.w))
         img[:, :] = np.array(self.mean_value)
-        img[h_off:h_off+orig_size.h, w_off:w_off+orig_size.w, :] = data
+        img[h_off:h_off+orig_size.h, w_off:w_off+orig_size.w] = data
 
         #-----------------------------------------------------------------------
         # Transform the ground truth
