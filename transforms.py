@@ -230,7 +230,7 @@ class ReorderChannelsTransform(Transform):
     Reorder Image Channels
     """
     def __call__(self, data, label, gt):
-        channels = [0, 1, 2]
+        channels = [0]
         random.shuffle(channels)
         return data[:, :,channels], label, gt
 
