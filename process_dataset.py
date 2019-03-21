@@ -51,13 +51,9 @@ def annotate(data_dir, samples, colors, sample_name):
         os.makedirs(result_dir)
 
     for sample in tqdm(samples, desc=sample_name, unit='samples'):
-<<<<<<< HEAD
         #img    = imageio.imread(sample.filename)
-        img    = cv2.imread(sample.filename, cv2.IMREAD_UNCHANGED)
-=======
-        img    = imageio.imread(sample.filename)
-        #img    = cv2.imread(sample.filename)
->>>>>>> parent of f93a9dc... g
+        img    = cv2.imread(sample.filename)
+
         basefn = os.path.basename(sample.filename)
         for box in sample.boxes:
             draw_box(img, box, colors[box.label])
