@@ -88,11 +88,11 @@ def build_train_transforms(preset, num_classes, sampler_trials, expand_prob):
     tf_contrast = ContrastTransform(lower=0.5, upper=1.5)
     tf_rnd_contrast = RandomTransform(prob=0.5, transform=tf_contrast)
 
-    tf_hue = HueTransform(delta=18)
-    tf_rnd_hue = RandomTransform(prob=0.5, transform=tf_hue)
-
-    tf_saturation = SaturationTransform(lower=0.5, upper=1.5)
-    tf_rnd_saturation = RandomTransform(prob=0.5, transform=tf_saturation)
+    # tf_hue = HueTransform(delta=18)
+    # tf_rnd_hue = RandomTransform(prob=0.5, transform=tf_hue)
+    #
+    # tf_saturation = SaturationTransform(lower=0.5, upper=1.5)
+    # tf_rnd_saturation = RandomTransform(prob=0.5, transform=tf_saturation)
 
     tf_reorder_channels = ReorderChannelsTransform()
     tf_rnd_reorder_channels = RandomTransform(prob=0.5,
@@ -103,8 +103,8 @@ def build_train_transforms(preset, num_classes, sampler_trials, expand_prob):
     #---------------------------------------------------------------------------
     tf_distort_lst = [
         tf_rnd_contrast,
-        tf_rnd_saturation,
-        tf_rnd_hue,
+        # tf_rnd_saturation,
+        # tf_rnd_hue,
         tf_rnd_contrast
     ]
     tf_distort_1 = ComposeTransform(transforms=tf_distort_lst[:-1])
