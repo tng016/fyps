@@ -232,7 +232,7 @@ class ReorderChannelsTransform(Transform):
     def __call__(self, data, label, gt):
         channels = [0]
         random.shuffle(channels)
-        return data[:, :,channels], label, gt
+        return data[:, :], label, gt
 
 #-------------------------------------------------------------------------------
 def transform_box(box, orig_size, new_size, h_off, w_off):
